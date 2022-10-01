@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-white">
+                <div class="card-body">
+                    <h3 class="header">Simple Todo List App</h3>
+                    <form #addForm="ngForm" (ngSubmit)="onAddTask(addForm)">
+                        <input type="text" ngModel name="content" class="form-control add-task" placeholder="New Task...">
+                        <button class="deleteButton" type="submit">Add</button>
+                    </form>
+                    <div *ngFor="let task of tasks; let i = index;" class="todo-list">
+                        <div class="todo-item">
+                            <div class="checker"><span class=""><input (click)="onDeleteTask(task.id)" type="checkbox"></span></div>
+                            <span> {{ task?.content}} </span>
+                            <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
